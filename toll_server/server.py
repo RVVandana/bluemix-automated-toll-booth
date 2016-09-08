@@ -390,7 +390,7 @@ def appTransaction(p_vehicleNum):
 		if(l_connection == None):
 			print("Database Connection Failed on Database Query")
 			return
-		dateorder_query = "SELECT * FROM DASH6461.TOLL_DATA WHERE VEHICLE_NUMBER = \'"+str(p_vehicleNum)+"\' ORDER BY DATES DESC,TIME DESC LIMIT 5"
+		dateorder_query = "SELECT * FROM DASH103289.TOLL_DATA WHERE VEHICLE_NUMBER = \'"+str(p_vehicleNum)+"\' ORDER BY DATES DESC,TIME DESC LIMIT 5"
 		try:
 			l_db_statement = ibm_db.exec_immediate(l_connection, dateorder_query)
 			l_temp_dict = ibm_db.fetch_assoc(l_db_statement)
@@ -421,6 +421,7 @@ Parameters 		:	message - Sensor Status sent from the hardware
 					channel - channel for the callback
 ****************************************************************************************'''
 def callback(message, channel):
+	print message
 	if(message.has_key("vehicleRFIDnum")):
 		try:
 			defaultLoader(message["vehicleRFIDnum"])
