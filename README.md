@@ -31,7 +31,7 @@ Step 6: Edit the pubnub publish and subscribe keys to your unique key provided b
 
 Step 7: Upload the Code to the Linkit ONE
 
-MOBILE APP BUILD
+#MOBILE APP BUILD
 
 Steps to be followed to Build and Run the Android App for Automated System (Note : Assumed Cordova framework installed in your system) (For pre-compiled app follow Step 4) Step 1 : Change the cordova project directory
 
