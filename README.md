@@ -1,9 +1,39 @@
-# BLUEMIX AUTOMATED TOLL BOOTH
-Smart Toll Plaza System using RFID is an enhancement to the currently deployed manual toll collection system. Time and efficiency are a matter of priority in present days. To over come the major problem of traffic congestion at toll plaza during peak hours , this RF Id based smart toll collection system makes toll transaction more convenient for travellers. Considering the present toll collection system , where all vehicles have to stop and pay taxes. On an average each vehicle passing through a toll plaza has to wait approx. 2 minute in a toll at engine start condition which thereby aids in air pollution and wastage of fuel &amp; money. If this system comes to existence, the waiting time at toll plaza will be reduced.  In this project, an RF Id card in the vehicle will be scanned by the reader placed at the toll plaza to automate the toll collection and billing for the user. This system also supports a mobile app for notifying the user about the toll transaction. Further, this app can also assist the user to check their historical toll transactions, &amp; manage money recharge. This system has a unique feature whereby the system can report a stolen vehicle if the vehicle’s owner blocks it.
+# Smmart Toll Booth with IBM Bluemix and Mediatek LinkItONE
 
-#DEVICE BUILD
+This is the project repository for Smart Highway Toll Collection System. Refer to the sections below for configuration , build and deployment instructions. 
 
-Step 1: Setting up the IDE to Program the Linkit ONE
+This is the accompanying project for this blog post.
+
+# Components
+
+The project has following components
+
+## Hardare setup for toll booth
+Refer the hardware setup and schematic in the blog post.
+
+The BOM for Hardware components is 
+
+1. Mediatek Linkit ONE Board (1 no.)
+
+2. RFID reader Module - EM 18  (1 no.)
+
+3. Servo Motor - V3006 (1 no.)
+
+## Backend Server Setup
+
+The backend server for this project is hosted on IBM Bluemix. PubNub is also used for messaging purposes between the server and hardware and app. You will need to sign up for Bluemix and PubNub subscription.
+
+## Mobile App
+User mobile app for managing individual toll transactions. The app is based on Apache Cordova 
+
+
+#Device Build
+
+Follow these instructions to build the toll booth device sofwware for LinkitONE. 
+
+Prerequisites : You will have to be familiar with Arduino IDE and have it installed on your laptop/PC.
+
+Step 1: Setting up the Arduino IDE to Program the Linkit ONE
 
 Installing the Arduino Linkit ONE Core with the Boards Manager
 
