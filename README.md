@@ -2,7 +2,7 @@
 
 This is the project repository for Smart Highway Toll Collection System. Refer to the sections below for configuration, build and deployment instructions. 
 
-This is the accompanying project for this blog post.
+This is the accompanying project for this [blog post](http://radiostud.io/smart-highway-toll-collection-system/).
 
 # Components
 
