@@ -1,6 +1,6 @@
 # Smart Highway Toll Collection System using IBM Bluemix and Mediatek LinkItONE
 
-This is the project repository for Smart Highway Toll Collection System. Refer to the sections below for configuration , build and deployment instructions. 
+This is the project repository for Smart Highway Toll Collection System. Refer to the sections below for configuration, build and deployment instructions. 
 
 This is the accompanying project for this blog post.
 
@@ -15,7 +15,7 @@ The BOM for Hardware components is
 
 1. Mediatek Linkit ONE Board (1 no.)
 
-2. RFID reader Module - EM 18  (1 no.)
+2. RFID Reader Module - EM 18  (1 no.)
 
 3. Servo Motor - V3006 (1 no.)
 
@@ -29,9 +29,9 @@ User mobile app for managing individual toll transactions. The app is based on A
 
 #Device Build
 
-Follow these instructions to build the toll booth device sofwware for LinkitONE. 
+Follow these instructions to build the toll booth device software for LinkitONE. 
 
-## Prerequisites : Arduino IDE 
+## Prerequisites: Arduino IDE 
 
 Setting up the Arduino IDE to Program the Linkit ONE
 
@@ -65,7 +65,7 @@ Step 7: Upload the Code to the Linkit ONE
 
 Steps to be followed to Build and Run the Android App for Automated Toll System (Note : Assuming Cordova framework installed in your system) (For pre-compiled app follow Step 4) 
 
-Step 1 : Change the cordova project directory
+Step 1 : Change to the Cordova project directory
     
     cd android app/autotoll/
 
@@ -81,6 +81,16 @@ Step 4 : Once the .apk file is build successfully, you will find the app at this
     
 Step 5 : Install the APP on an Android Phone.
 
+## Mobile App Registration
+
+(This step should be performed only after the server application is deployed in Bluemix. Refer the steps below for Bluemix deployment)
+
+After installing the mobile app, launch it on your mobile. On the starting screen of the app, you will be asked to enter the vehicle registration number. Enter the same vehicle registration number that you provisioned in the DashDB database as part of vehicle data loading.
+	
+	Enter the registered vehicle number and click Login.
+	Your name, vehicle type and the wallet balance info will be displayed on the App.
+
+
 # Bluemix Deployment
 
 Steps for deploying the application server on Bluemix.
@@ -88,8 +98,8 @@ Steps for deploying the application server on Bluemix.
 ## Prerequisites
 
     -   You should have a valid IBM account.
-    -   You should have a Bluemit subscription and access to your Bluemix dashboard with atleast one space created.
-    -   You should have the cloudfoundry command line tool installed.
+    -   You should have a Bluemix subscription and access to your Bluemix dashboard with atleast one space created.
+    -   You should have the Cloudfoundry command line tool installed.
             (https://github.com/cloudfoundry/cli/releases)
     -   You should have a PubNub subscription
 
@@ -122,8 +132,67 @@ Step 5: In the dashDB service home page, under the Side Menu, under the Connect 
 Step 6: In the Side Main Menu, click on "Run SQL" and you will be presented the Run SQL screen. Click on the 'Upload' button and choose the SQL schema file (db.sql link)
 Click on the ‘Run All’ button to execute the SQL statements.
 
-Step 7: If the Run command executed successfully , you will be able to see the new tables created under your dashDB instance
+Step 7: If the Run command executed successfully, you will be able to see the new tables created under your dashDB instance
 Click on “Tables” submenu. Select the table from “Table Name ” dropdown to access the table schema and data. You can find two tables listed under the dropdown 
         
         VEHICLE_INFO
         TOLL_DATA
+
+### Loading Vehicle Data in DashDB
+
+	-	Get the RFID number
+		(Steps to get the RFID number)
+
+	-	Once you got the RFID number open the userData.sql(link for that)
+		In the sql file you can see the SQL query like
+		INSERT INTO VEHICLE_INFO VALUES (username,vehicleregistrationnumber,vehicletype,walletbalance,blockstatus,rfidnumber);
+
+			username : Vehicle owner name
+			vechicleregistrationnumber : Your Vehicle registration number (Remember you have to enter the same when you are starting your mobile app)
+			walletbalance : Amount in your account
+			blockstatus : Vechicle blocked status (initial it is zero means not blocked)
+			rfidnumber : RFID Tag number (you got it in the first step)
+
+	-	In the Side Main Menu, click on "Run SQL" and you will be presented the Run SQL screen. Click on the 'Open' button and 			choose the SQL schema file (userData.sql link)
+
+	-	Click on the ‘validate’ button to ensure that SQL syntax is valid
+
+	-	Click on the ‘Run’ button to execute the SQL statements.
+ 		If the Run command executed successfully , you will be able to see the inserted values in the VEHICLE_INFO Table.
+
+## Deploying the Toll Management Server Application in Bluemix
+
+Step 1 - Update the parameters in the config.ini (link to config.ini)
+
+	pub_key = PubNub publish key
+	sub_key = PubNub subscribe key
+	db_schema =   UserID of the DashDB instance , in caps
+	db_host = Host Name
+	username = User ID of the DashDB instance
+	pwd = Password of dashDB instance
+	port = Port Number  
+	table_name = Table name is set to VEHICLE_INFO
+	table_name = Table name is set to TOLL_DATA
+
+Step 2 - Open the manifest file (manifest.yml link) and update the following entries
+	
+	applications:
+        		- name : <name of the application on server>
+
+    	services
+        		- <dashdb instance name>
+
+   	 where 
+        		<name of the application on server> - Any desired name for the application
+        		<dashdb instance name> - name of the dashdb service instance that you have created in the previous section.
+
+Step 3 - Login to Bluemix console via cf tool and select the space.
+
+Step 4 - Change directory to the server application root (toll_server) under the cloned GitHub repository.
+
+Step 5 - Run the following command to push the application code to bluemix
+	‘cf push’
+
+Once successfully pushed, the server application will be automatically started. You can check its state in your Bluemix dashboard and see that its state is set to 'Running'.
+
+
