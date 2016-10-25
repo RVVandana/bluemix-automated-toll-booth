@@ -148,7 +148,7 @@ Step 1 : Get the RFID number
 
 Follow these steps to get the RFID number of the tag.
 
-	1.	Make the hardware setup as per the schematic give in the blog post.
+	1.	Make the hardware setup as per the schematic given in the blog post.
 	
 	2.	Upload the test_app/rfidTagReader/rfidTagReader.ino file to the Linkit One through the Linkit Port [Tools->Port->LinkitOne], under Arduino IDE.
 	
@@ -171,9 +171,9 @@ Step 2 : Once you got the RFID number open the [userData.sql](toll_server/userDa
 			0 is BLOCK_STATUS : Vechicle blocked status (initial it is zero which indiates not blocked)
 			090096B43E15 is RFID : RFID Tag number (that you got in the first step)
 
-		Modify the INSERT data as per your wish ensuring that the RFID tag is correctl. You can also make multiple INSERT entries if you have more RFID tags. Save the file after all modifications.
+		Modify the INSERT data as per your wish ensuring that the RFID tag is correct. You can also make multiple INSERT entries if you have more RFID tags. Save the file after all modifications.
 
-Step 3 : In the Side Main Menu, click on "Run SQL" and you will be presented the Run SQL screen. Click on the 'Upload' button and 			choose the SQL schema file (userData.sql link) which you just modified in the previous step.
+Step 3 : In the Side Main Menu, click on "Run SQL" and you will be presented the Run SQL screen. Click on the 'Upload' button and 			choose the SQL schema file [userData.sql](toll_server/userData.sql) which you just modified in the previous step.
 
 Step 4 : Click on the ‘Run All’ button to execute the SQL statements.
  		If the Run command executed successfully , you will be able to see the inserted values in the VEHICLE_INFO Table.
