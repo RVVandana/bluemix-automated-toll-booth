@@ -98,3 +98,32 @@ Steps for deploying the application server on Bluemix.
 
 Before we run the server application, we need to create a DashDB instance.
 
+Step 1: Login to Bluemix with your credentials.
+
+Step 2: In your dashboard, goto Catalog and select the Data and Analytics Section.
+
+You can see that the dashDB service  listed under this section or you can search for dashDB
+
+Step 3: Click on dashDB service icon and create a dashDB service instance for your space by filling following details,
+      
+        1) Connect to   - You can select "leave unbound"
+        2) Service name - Enter a name for the service of your choice
+        3) Credential name - Enter a name for the Credential of your choice
+        4) Selected Plan - Choose 'Entry'.
+        5) Click CREATE to create the dashdb service instance.
+
+Step 4: After creation of the service, go back to dashboard.Now you can see the dashDB service added to your space. Click the service and click the launch button and you can see your newly created dashDB service home page.
+
+Step 5: In the dashDB service home page, under the Side Menu, under the Connect -> Connection information,
+	    You can see your dashDB Host name,Database name,user id and password.
+
+	    Make a note of Host Name, Port Number , Database Name, User ID and Password.
+
+Step 6: In the Side Main Menu, click on "Run SQL" and you will be presented the Run SQL screen. Click on the 'Upload' button and choose the SQL schema file (db.sql link)
+Click on the ‘Run All’ button to execute the SQL statements.
+
+Step 7: If the Run command executed successfully , you will be able to see the new tables created under your dashDB instance
+Click on “Tables” submenu. Select the table from “Table Name ” dropdown to access the table schema and data. You can find two tables listed under the dropdown 
+        
+        VEHICLE_INFO
+        TOLL_DATA
