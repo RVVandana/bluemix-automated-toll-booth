@@ -19,6 +19,8 @@ The BOM for Hardware components is
 
 3. Servo Motor - V3006 (1 no.)
 
+4. Smart RFID Passive Tag , 125 kHz (1 no.)
+
 ## Backend Server Setup
 
 The backend server for this project is hosted on IBM Bluemix. PubNub is also used for messaging purposes between the server and hardware and app. You will need to sign up for Bluemix and PubNub subscription.
