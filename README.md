@@ -33,17 +33,19 @@ User mobile app for managing individual toll transactions. The app is based on A
 
 Follow these instructions to build the toll booth device software for LinkitONE. 
 
-## Prerequisites: Arduino IDE 
+## Prerequisites: Setting up the Arduino IDE to Program the Linkit ONE 
 
-Setting up the Arduino IDE to Program the Linkit ONE
+Step 1 : Installing the Arduino Linkit ONE Core with the Boards Manager
 
-Installing the Arduino Linkit ONE Core with the Boards Manager
+Step 2 : Download and Install Arduino 1.6.6 from [https://www.arduino.cc/en/Main/Software]
 
-Download and Install Arduino 1.6.6 from [https://www.arduino.cc/en/Main/Software]
-Start Arduino and open Preferences window.
-Enter http://download.labs.mediatek.com/package_mtk_linkit_index.json into Additional Board Manager URLs field.
-You can add multiple URLs, separating them with commas.
-Open Boards Manager from Tools > Boards > Board menu and install.
+Step 3 : Start Arduino and open Preferences window.
+
+Step 4 : Enter http://download.labs.mediatek.com/package_mtk_linkit_index.json into Additional Board Manager URLs field.
+
+	You can add multiple URLs, separating them with commas.
+
+Step 5 : Open Boards Manager from Tools > Boards > Board menu and install.
 
 ## Uploading the Program to the LINKIT ONE using the Arduino IDE
 
@@ -59,7 +61,7 @@ Step 4: Select the USB Port from Tools - > Linkit Debug Port
 
 Step 5: In [settings.h](rfidLinkit/settings.h), line 9,10 and 11, edit the SSID and PASSWORD to configure to your router
 
-Step 6: [settings.h](rfidLinkit/settings.h), in line 14 & 15, edit the pubnub publish and subscribe keys as per your unique key provided by pubnub.com
+Step 6: In [settings.h](rfidLinkit/settings.h), in line 14 & 15, edit the pubnub publish and subscribe keys as per your unique key provided by pubnub.com
 
 Step 7: Upload the Code to the Linkit ONE
 
@@ -131,7 +133,7 @@ Step 5: In the dashDB service home page, under the Side Menu, under the Connect 
 
 	    Make a note of Host Name, Port Number , Database Name, User ID and Password.
 
-Step 6: In the Side Main Menu, click on "Run SQL" and you will be presented the Run SQL screen. Click on the 'Upload' button and choose the SQL schema file (db.sql link)
+Step 6: In the Side Main Menu, click on "Run SQL" and you will be presented the Run SQL screen. Click on the 'Upload' button and choose the [SQL schema file](toll_server/db.sql)
 Click on the ‘Run All’ button to execute the SQL statements.
 
 Step 7: If the Run command executed successfully, you will be able to see the new tables created under your dashDB instance
@@ -144,7 +146,7 @@ Click on “Tables” submenu. Select the table from “Table Name ” dropdown 
 
 Step 1 : Get the RFID number
 
-Follow these steps to get teh RFID number of the tag.
+Follow these steps to get the RFID number of the tag.
 
 	1.	Make the hardware setup as per the schematic give in the blog post.
 	
@@ -156,9 +158,9 @@ Follow these steps to get teh RFID number of the tag.
 	
 	5. 	Make a note the RFID number and make sure to use that number in the dataabse for provisioning vehicle data.
 	
-Step 2 : Once you got the RFID number open the userData.sql(link for that) and modify it by following the instructions as follows.
+Step 2 : Once you got the RFID number open the [userData.sql](toll_server/userData.sql) file. This is where all user and vehicle information is provisioned. To provision data, modify this file by following the instructions below .
 		
-		In the sql file you can see the SQL query like
+		In the sql file you can see the SQL query like for a sample data
 		INSERT INTO VEHICLE_INFO VALUES ('JOHN','KA0H1234','CAR',100,0,'090096B43E15');
 
 		Here the column data is mapped as follows 
