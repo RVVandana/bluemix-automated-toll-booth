@@ -89,7 +89,11 @@ Step 5 : Install the APP on an Android Phone.
 
 (This step should be performed only after the server application is deployed in Bluemix. Refer the steps below for Bluemix deployment)
 
-After installing the mobile app, launch it on your mobile. On the starting screen of the app, you will be asked to enter the vehicle registration number. Enter the same vehicle registration number that you provisioned in the DashDB database as part of vehicle data loading.
+After installing the mobile app, launch it on your mobile. On the starting screen of the app, you will be asked to enter the vehicle registration number. 
+
+<img src="/screenshots/AutoToll_appregistrationscreen.png" align="center" width="200" >
+
+Enter the same vehicle registration number that you provisioned in the DashDB database as part of vehicle data loading.
 	
 	Enter the registered vehicle number and click Login.
 	Your name, vehicle type and the wallet balance info will be displayed on the App.
@@ -114,7 +118,11 @@ Before we run the server application, we need to create a DashDB instance.
 
 Step 1: Login to Bluemix with your credentials.
 
+<img src="/screenshots/step1-image1.png" align="center" width="600" >
+
 Step 2: In your dashboard, goto Catalog and select the Data and Analytics Section.
+
+<img src="/screenshots/step2-image2.png" align="center" width="600" >
 
 You can see that the dashDB service  listed under this section or you can search for dashDB
 
@@ -126,21 +134,41 @@ Step 3: Click on dashDB service icon and create a dashDB service instance for yo
         4) Selected Plan - Choose 'Entry'.
         5) Click CREATE to create the dashdb service instance.
 
+<img src="/screenshots/step3-image3.png" align="center" width="600" >
+
 Step 4: After creation of the service, go back to dashboard.Now you can see the dashDB service added to your space. Click the service and click the "Open" button and you can see your newly created dashDB service home page.
 
+<img src="/screenshots/step4-image4.png" align="center" width="600" >
+
 Step 5: In the dashDB service home page, under the Side Menu, under the Connect -> Connection information,
-	    You can see your dashDB Host name,Database name,user id and password.
+	    
+<img src="/screenshots/step5-image5.png" align="center" width="600" >
+	    
+
+You can see your dashDB Host name,Database name,user id and password.
 
 	    Make a note of Host Name, Port Number , Database Name, User ID and Password.
 
-Step 6: In the Side Main Menu, click on "Run SQL" and you will be presented the Run SQL screen. Click on the 'Upload' button and choose the [SQL schema file](toll_server/db.sql)
-Click on the ‘Run All’ button to execute the SQL statements.
+<img src="/screenshots/step5-image6.png" align="center" width="600" >
 
-Step 7: If the Run command executed successfully, you will be able to see the new tables created under your dashDB instance
+
+Step 6: In the Side Main Menu, click on "Run SQL" and you will be presented the Run SQL screen. 
+
+<img src="/screenshots/step6-image7.png" align="center" width="600" >
+
+Click on the 'Upload' button and choose the [SQL schema file](toll_server/db.sql)
+
+<img src="/screenshots/step6-image8.png" align="center" width="600" >
+
+Step 7 : Click on the ‘Run All’ button to execute the SQL statements.
+
+If the Run command executed successfully, you will be able to see the new tables created under your dashDB instance
 Click on “Tables” submenu. Select the table from “Table Name ” dropdown to access the table schema and data. You can find two tables listed under the dropdown 
         
         VEHICLE_INFO
         TOLL_DATA
+
+<img src="/screenshots/step7-image9.png" align="center" width="600" >
 
 ### Loading Vehicle Data in DashDB
 
@@ -177,6 +205,12 @@ Step 3 : In the Side Main Menu, click on "Run SQL" and you will be presented the
 
 Step 4 : Click on the ‘Run All’ button to execute the SQL statements.
  		If the Run command executed successfully , you will be able to see the inserted values in the VEHICLE_INFO Table.
+
+
+<img src="/screenshots/image10.png" align="center" width="600" >
+
+<img src="/screenshots/image11.png" align="center" width="600" >
+
 
 ## Deploying the Toll Management Server Application in Bluemix
 
