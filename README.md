@@ -142,24 +142,38 @@ Click on “Tables” submenu. Select the table from “Table Name ” dropdown 
 
 ### Loading Vehicle Data in DashDB
 
-	-	Get the RFID number
-		(Steps to get the RFID number)
+Step 1 : Get the RFID number
 
-	-	Once you got the RFID number open the userData.sql(link for that)
+Follow these steps to get teh RFID number of the tag.
+
+	1.	Make the hardware setup as per the schematic give in the blog post.
+	
+	2.	Upload the test_app/rfidTagReader/rfidTagReader.ino file to the Linkit One through the Linkit Port [Tools->Port->LinkitOne], under Arduino IDE.
+	
+	3. 	Open the serial monitor, and start swiping the cards across the RFID Reader.
+	
+	4. 	The RFID number will be printed on the serial monitor.
+	
+	5. 	Make a note the RFID number and make sure to use that number in the dataabse for provisioning vehicle data.
+	
+Step 2 : Once you got the RFID number open the userData.sql(link for that) and modify it by following the instructions as follows.
+		
 		In the sql file you can see the SQL query like
-		INSERT INTO VEHICLE_INFO VALUES (username,vehicleregistrationnumber,vehicletype,walletbalance,blockstatus,rfidnumber);
+		INSERT INTO VEHICLE_INFO VALUES ('JOHN','KA0H1234','CAR',100,0,'090096B43E15');
 
-			username : Vehicle owner name
-			vechicleregistrationnumber : Your Vehicle registration number (Remember you have to enter the same when you are starting your mobile app)
-			walletbalance : Amount in your account
-			blockstatus : Vechicle blocked status (initial it is zero means not blocked)
-			rfidnumber : RFID Tag number (you got it in the first step)
+		Here the column data is mapped as follows 
+			John is the USER_NAME : Vehicle owner name
+			KA0H1234 is VEHICLE_NUMBER : Your Vehicle registration number (Remember you have to enter the same when you are starting your mobile app)
+			CAR is VEHICLE_TYPE : Type of vehicle
+			100 is WALLET_BAL  : Amount in your account
+			0 is BLOCK_STATUS : Vechicle blocked status (initial it is zero which indiates not blocked)
+			090096B43E15 is RFID : RFID Tag number (that you got in the first step)
 
-	-	In the Side Main Menu, click on "Run SQL" and you will be presented the Run SQL screen. Click on the 'Open' button and 			choose the SQL schema file (userData.sql link)
+		Modify the INSERT data as per your wish ensuring that the RFID tag is correctl. You can also make multiple INSERT entries if you have more RFID tags. Save the file after all modifications.
 
-	-	Click on the ‘validate’ button to ensure that SQL syntax is valid
+Step 3 : In the Side Main Menu, click on "Run SQL" and you will be presented the Run SQL screen. Click on the 'Upload' button and 			choose the SQL schema file (userData.sql link) which you just modified in the previous step.
 
-	-	Click on the ‘Run’ button to execute the SQL statements.
+Step 4 : Click on the ‘Run All’ button to execute the SQL statements.
  		If the Run command executed successfully , you will be able to see the inserted values in the VEHICLE_INFO Table.
 
 ## Deploying the Toll Management Server Application in Bluemix
