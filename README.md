@@ -83,7 +83,16 @@ Step 5 : Install the APP on an Android Phone.
 
 # Bluemix Deployment
 
-Steps for deploying the application server on Bluemix
+Steps for deploying the application server on Bluemix.
+
+## Prerequisites
+
+    -   You should have a valid IBM account.
+    -   You should have a Bluemit subscription and access to your Bluemix dashboard with atleast one space created.
+    -   You should have the cloudfoundry command line tool installed.
+            (https://github.com/cloudfoundry/cli/releases)
+    -   You should have a PubNub subscription
+
 
 ## DashDB  Configuration
 
