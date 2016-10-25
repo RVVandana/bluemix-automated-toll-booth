@@ -178,7 +178,7 @@ Step 4 : Click on the ‘Run All’ button to execute the SQL statements.
 
 ## Deploying the Toll Management Server Application in Bluemix
 
-Step 1 - Update the parameters in the config.ini (link to config.ini)
+Step 1 - Update the parameters in the [config.ini](toll_server/config.ini) file
 
 	pub_key = PubNub publish key
 	sub_key = PubNub subscribe key
@@ -190,7 +190,7 @@ Step 1 - Update the parameters in the config.ini (link to config.ini)
 	table_name = Table name is set to VEHICLE_INFO
 	table_name = Table name is set to TOLL_DATA
 
-Step 2 - Open the manifest file (manifest.yml link) and update the following entries
+Step 2 - Open the [manifest file](toll_server/manifest.yml) and update the following entries
 	
 	applications:
         		- name : <name of the application on server>
