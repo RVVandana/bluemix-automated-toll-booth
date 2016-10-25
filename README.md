@@ -126,7 +126,7 @@ Step 3: Click on dashDB service icon and create a dashDB service instance for yo
         4) Selected Plan - Choose 'Entry'.
         5) Click CREATE to create the dashdb service instance.
 
-Step 4: After creation of the service, go back to dashboard.Now you can see the dashDB service added to your space. Click the service and click the launch button and you can see your newly created dashDB service home page.
+Step 4: After creation of the service, go back to dashboard.Now you can see the dashDB service added to your space. Click the service and click the "Open" button and you can see your newly created dashDB service home page.
 
 Step 5: In the dashDB service home page, under the Side Menu, under the Connect -> Connection information,
 	    You can see your dashDB Host name,Database name,user id and password.
